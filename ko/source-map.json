@@ -8098,9 +8098,11 @@
         "medical_or_safety",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-01"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-02",
@@ -8112,9 +8114,11 @@
         "medical_or_safety",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-02"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-03",
@@ -8127,9 +8131,11 @@
         "medical_or_safety",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-03"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-04",
@@ -8142,9 +8148,11 @@
         "medical_or_safety",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-04"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-05",
@@ -8156,9 +8164,11 @@
         "medical_or_safety",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-05"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-06",
@@ -8173,9 +8183,11 @@
         "medical_or_safety",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-06"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-07",
@@ -8187,9 +8199,11 @@
         "medical_or_safety",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-07"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-08",
@@ -8201,9 +8215,11 @@
         "medical_or_safety",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-08"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-09",
@@ -8214,9 +8230,11 @@
       "review_flags": [
         "medical_or_safety"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-09"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-10",
@@ -8228,9 +8246,11 @@
         "china_policy",
         "medical_or_safety"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-10"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-11",
@@ -8243,9 +8263,11 @@
         "medical_or_safety",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-11"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-12",
@@ -8258,9 +8280,11 @@
         "china_policy",
         "phone_number"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-12"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-29-13",
@@ -8273,9 +8297,11 @@
         "china_policy",
         "medical_or_safety"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-29-13"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-30-01",
