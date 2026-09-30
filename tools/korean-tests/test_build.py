@@ -1,6 +1,7 @@
 """Validate source traceability and safe rendering rather than clinical content."""
 import importlib.util
 import json
+import re
 from pathlib import Path
 import tempfile
 import unittest
@@ -36,9 +37,13 @@ class KoreanBuildTests(unittest.TestCase):
     def test_generated_page_has_all_entries_and_no_original_ads(self):
         page = build.read(build.ROOT/'index.html')
         cards = [card for path in (build.ROOT/'ko/book').glob('*.md') for card in build.entries(path)]
-        self.assertEqual(len(cards), page.count('<article id='))
-        for card in cards:
-            self.assertIn('id="'+card['id']+'"', page)
+        corpus=json.loads(re.search(r'window\.__CORPUS__=(.*?);</script>',page,re.S)[1])
+        self.assertEqual(34,len(corpus['parts']))
+        self.assertEqual(len(cards),sum(len(re.findall(r'^### \d+\.',part,re.M)) for part in corpus['parts'].values()))
+        self.assertIn('class="sidebar"',page)
+        self.assertIn('id="theme"',page)
+        for dimension in ('ratio','lens','grade','money','time','will'):
+            self.assertIn('data-dim="'+dimension+'"',page)
         self.assertIn('<html lang="ko">', page)
         self.assertNotIn('wechat-reward', page)
         self.assertNotIn('mcyyy', page)

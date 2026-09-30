@@ -70,28 +70,39 @@ def source_inventory():
 
 
 def render(meta, cards, inventory):
-    completed_chapters = {card['chapter'] for card in cards}
-    options = '<option value="">모든 장</option>' + ''.join(
-        f'<option value="{n}">{n:02}. {html.escape(title)}</option>'
-        for n, title, _ in meta['chapters'] if n in completed_chapters)
-    rendered = []
-    for card in cards:
-        fields = card['fields']
-        rendered.append(f'<article id="{card["id"]}" data-chapter="{card["chapter"]}">'
-                        f'<div class="eyebrow">{card["chapter"]:02}장 · 한국판 초안</div>'
-                        f'<h2><a href="#{card["id"]}">{html.escape(card["title"])}</a></h2>'
-                        f'<p class="summary">{inline(fields["핵심"])}</p><dl>' +
-                        ''.join(f'<dt>{key}</dt><dd>{inline(fields[key])}</dd>'
-                                for key in REQUIRED if key != '핵심') + '</dl></article>')
-    roadmap = ''.join(f'<li><strong>{n:02}. {html.escape(title)}</strong>'
-                      f'<span class="badge">{"일부 초안 작성" if n in completed_chapters else "작성 대기"}</span>'
-                      f'<p>{html.escape(plan)}</p></li>' for n,title,plan in meta['chapters'])
-    template = read(ROOT/'ko/site-template.html')
-    values = dict(TITLE=html.escape(meta['title']), OPTIONS=options, CARDS='\n'.join(rendered),
-                  ROADMAP=roadmap, COUNT=str(len(cards)), CHAPTERS=str(len(completed_chapters)),
-                  SOURCE_COUNT=str(len(inventory)), DATE=meta['checked_at'])
-    for key, value in values.items():
-        template = template.replace('{{'+key+'}}', value)
+    # Feed the original reader, preserving its layout and filter/navigation code.
+    # This interim corpus contains only edited drafts, never raw machine output.
+    parts={}
+    readme=['# 한국판\n','## 숫자 읽기\n',
+            '| 용어 | 설명 |','| --- | --- |',
+            '| HR | 연구 기간 동안 사건이 발생하는 상대적인 위험을 비교한 값입니다. 개인의 확정된 결과가 아닙니다. |',
+            '| RR | 두 집단의 위험 비율입니다. 실제 차이를 알려면 기준 위험도 함께 봐야 합니다. |',
+            '| OR | 사건 발생 오즈의 비율입니다. 사건이 흔하면 위험 비율과 차이가 커질 수 있습니다. |',
+            '| CI | 연구 결과 추정치의 불확실성을 나타내는 구간입니다. |',
+            '## 목차\n']
+    for n,title,plan in meta['chapters']:
+        chapter_cards=[c for c in cards if c['chapter']==n]
+        path=f'book/{n:02}.md'
+        readme.append(f'- [{n}. {title}]({path})')
+        lines=[f'# {n}. {title}',
+               f'한국 현지화 검토 중. {plan}',
+               '현재 일부 편집 초안만 표시합니다. 원문의 모든 항목을 반영한 완성본은 아닙니다.']
+        for i,card in enumerate(chapter_cards,1):
+            f=card['fields']
+            # Drafts have no researched quantitative benefit ranking. Explicit U
+            # avoids manufacturing the original site's high/medium/low ratings.
+            lines.extend([f'### {i}. {card["title"]}',
+                          '<!-- 비용标签: 돈=미정 시간=미정 노력=미정 효과=미정 口径=미정 -->',
+                          '- 비용: '+f['비용'],
+                          '- 쉽게 말하면: '+f['핵심'],
+                          '- 기대 효과: '+f['기대 효과'],
+                          '- 근거 등급: K',
+                          '- 출처: '+f['출처'],
+                          '- 참고: 실행: '+f['실행']+' 주의: '+f['주의']+' 근거 유형: '+f['근거 유형']+' 원문 대응: '+f['원문 대응']+' 확인일: '+f['확인일']+' · 한국판 검토 필요', ''])
+        parts[path]='\n'.join(lines)
+    corpus={'readme':'\n'.join(readme),'parts':parts}
+    embedded=json.dumps(corpus,ensure_ascii=False).replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
+    template=read(ROOT/'ko/site-template.html').replace('{{CORPUS}}','<script>window.__CORPUS__='+embedded+';</script>')
     if re.search(r'\{\{[A-Z_]+\}\}', template):
         raise ValueError('unresolved template fields')
     return template

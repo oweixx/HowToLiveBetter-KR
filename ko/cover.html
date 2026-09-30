@@ -1,26 +1,42 @@
-<!doctype html>
-<html lang="ko">
-<meta charset="utf-8">
-<meta name="viewport" content="width=1200">
-<title>한국판 공유 이미지</title>
+<!-- Korean cover; preserve upstream layout. -->
+<!doctype html><html lang="ko"><meta charset="utf-8">
 <style>
-*{box-sizing:border-box}html,body{margin:0;width:1200px;height:630px;overflow:hidden}
-body{font-family:"Malgun Gothic","Noto Sans KR",sans-serif;background:#f3f0e8;color:#182e29}
-main{height:100%;padding:56px 68px;position:relative;border-top:12px solid #245c4b}
-.top{font-size:22px;letter-spacing:2px;font-weight:700;color:#426659}
-h1{font-size:70px;line-height:1.3;letter-spacing:-4px;margin:32px 0 20px;position:relative;z-index:1}
-h1 span{color:#286b53}p{font-size:25px;line-height:1.7;position:relative;z-index:1}
-.topics{display:flex;gap:12px;margin-top:32px}.topics span{border:1px solid #c3cec1;border-radius:24px;padding:10px 20px;font-size:20px;background:#f3f0e8}
-footer{position:absolute;bottom:35px;left:68px;right:68px;display:flex;justify-content:space-between;align-items:center;font-size:17px;color:#496357}
-.status{border-radius:6px;background:#e4d4a8;color:#4a3b17;padding:8px 14px;font-weight:700}
-svg{position:absolute;right:72px;top:146px;width:245px;height:245px;opacity:.85}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:630px;font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+  background:#fff;position:relative;overflow:hidden}
+.bg{position:absolute;inset:0;
+  background:radial-gradient(700px 420px at 88% 8%, rgba(100,108,255,.16), transparent 70%),
+             radial-gradient(560px 380px at 4% 100%, rgba(16,185,129,.12), transparent 70%)}
+.grid{position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(#eceded 1px,transparent 1px),linear-gradient(90deg,#eceded 1px,transparent 1px);
+  background-size:48px 48px;
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 78%)}
+.in{position:relative;padding:76px 84px;height:100%;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:14px;font-size:23px;color:#3c3c43b8;font-weight:600;letter-spacing:.02em}
+.logo{width:44px;height:44px;border-radius:11px;background:#3451b2;color:#fff;font-size:26px;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+.logo svg{width:28px;height:28px}
+h1{margin-top:56px;font-size:72px;line-height:1.12;letter-spacing:-.02em;color:#1b1b1f;font-weight:700}
+h1 em{font-style:normal;color:#3451b2}
+p{margin-top:26px;font-size:30px;white-space:nowrap;line-height:1.6;color:#3c3c43c7;max-width:960px}
+.chips{margin-top:auto;margin-bottom:8px;display:flex;gap:14px;flex-wrap:wrap}
+.c{font-size:24px;font-weight:600;padding:12px 22px;border-radius:999px;background:#f6f6f7;color:#3c3c43c7;border:1px solid #e2e2e3}
+.c b{color:#1b1b1f}
+.c.a{background:rgba(16,185,129,.12);border-color:transparent;color:#18794e}
+.c.u{background:rgba(100,108,255,.14);border-color:transparent;color:#3451b2}
+.bar{position:absolute;left:0;top:0;width:100%;height:8px;background:linear-gradient(90deg,#3451b2,#5672cd 45%,#18794e)}
 </style>
-<main>
-<div class="top">HowToLiveBetter · 비공식 한국판</div>
-<h1>가성비 높은 삶을 위한<br><span>안내서</span></h1>
-<p>한국의 제도와 생활에 맞춰<br>돈·시간·건강을 살펴봅니다.</p>
-<svg viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="118" fill="#dde5d7"/><path d="M51 65 Q85 50 120 68 Q155 50 189 65 V169 Q155 154 120 172 Q85 154 51 169Z" fill="#f9f7ef" stroke="#245c4b" stroke-width="5" stroke-linejoin="round"/><path d="M120 68V172M70 91L101 94M70 113L101 116M139 94L170 91M139 116L170 113" fill="none" stroke="#245c4b" stroke-width="5" stroke-linecap="round"/><circle cx="182" cy="171" r="31" fill="#245c4b"/><path d="M168 171L178 181L196 160" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>
-<div class="topics"><span>생활과 건강</span><span>주거와 돈</span><span>일과 가족</span></div>
-<footer><span>oweixx / HowToLiveBetter-KR · 원작 eternity4719</span><span class="status">한국 현지화 초안</span></footer>
-</main>
+<div class="bg"></div><div class="grid"></div><div class="bar"></div>
+<div class="in">
+  <div class="brand"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>가성비 높은 삶을 위한 안내서</div>
+  <h1>돈과 시간, 노력을 아껴<br><em>더 나은 삶을 위한 선택</em></h1>
+  <p>건강 · 응급처치 · 생활비 · 주거 · 일과 복지 · 가족 · 배움</p>
+  <div class="chips">
+    <div class="c u">원문 <b>34장 · 641개 항목</b></div>
+    <div class="c a"><b>비공식 한국판</b></div>
+    <div class="c">한국 현지화 진행 중</div>
+    <div class="c">oweixx</div>
+  </div>
+</div>
+
 </html>
