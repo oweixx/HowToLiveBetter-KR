@@ -5867,9 +5867,11 @@
         "currency",
         "china_policy"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-17-01"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-17-02",
@@ -5881,9 +5883,11 @@
         "currency",
         "china_policy"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-17-02"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-17-03",
@@ -5892,9 +5896,11 @@
       "title": "老人的钱单独放一个账户，大额支出定一个双人确认的规矩",
       "sha256": "ccdf5a26f82889faddbe76b378182de550927362ddb8dc5d1ef67c83888cf891",
       "review_flags": [],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-17-03"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-17-04",
@@ -5903,9 +5909,11 @@
       "title": "给老人一句可以随时说出口的挡箭牌话术",
       "sha256": "6624f13faae62ac82ee8b2b001301385a4b915d56420c4f87ad403cb0389872f",
       "review_flags": [],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-17-04"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-17-05",
@@ -5918,9 +5926,11 @@
         "china_policy",
         "phone_number"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-17-05"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-17-06",
@@ -5932,9 +5942,11 @@
         "china_policy",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-17-06"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-17-07",
@@ -5947,9 +5959,11 @@
         "phone_number",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-17-07"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-17-08",
@@ -5962,9 +5976,11 @@
         "medical_or_safety",
         "statistics"
       ],
-      "status": "pending",
-      "korean_entries": [],
-      "decision": null
+      "status": "reviewed",
+      "korean_entries": [
+        "kr-17-08"
+      ],
+      "decision": "원문 번호별 대조 후 번역 또는 한국 제도로 재작성. 연구 수치와 적용 한계, 대체 이유는 해당 본문과 REVIEW-NOTES.md에 기록. 전문 의료·법률 검수 인증이 아닌 편집 대조 기록."
     },
     {
       "id": "zh-18-01",
