@@ -24,6 +24,23 @@ def translate(values):
     cached = CACHE/(digest+'.json')
     if cached.exists():
         return json.loads(cached.read_text(encoding='utf-8'))
+    if sum(len(v) for v in values)>1600:
+        if len(values)>1:
+            result=[translate([v])[0] for v in values]
+        else:
+            pieces=re.split(r'(?<=[。；！？])',values[0])
+            chunks=[]
+            current=''
+            for piece in pieces:
+                if len(current)+len(piece)>1200 and current:
+                    chunks.append(current);current=''
+                current+=piece
+            if current:chunks.append(current)
+            if len(chunks)==1:
+                chunks=[values[0][i:i+1000] for i in range(0,len(values[0]),1000)]
+            result=[' '.join(translate([chunk])[0] for chunk in chunks)]
+        cached.write_text(json.dumps(result,ensure_ascii=False),encoding='utf-8')
+        return result
     urls = {}
     def protect(m):
         key = f'URLKEEP{len(urls):05}END'
@@ -75,17 +92,18 @@ def chapter(path):
     for i,m in enumerate(headings):
         body=raw[m.end():headings[i+1].start() if i+1<len(headings) else len(raw)]
         fields=re.findall(r'^- (成本|说人话|收益|证据等级|来源|备注)：(.*)$',body,re.M)
-        values=[m[2]]+[value for key,value in fields if key!='证据等级']
+        values=[m[2]]+[value for key,value in fields if key not in ('证据等级','来源')]
         trans=translate(values)
         cursor=1
         out.append(f'### {m[1]}. {trans[0]}')
         tag=re.search(r'^<!-- 成本标签:.*?-->',body,re.M)
         if tag:out.append(tag[0])
         for key,value in fields:
-            if key!='证据等级':value=trans[cursor];cursor+=1
+            if key not in ('证据等级','来源'):value=trans[cursor];cursor+=1
             out.append(f'- {FIELDS[key]}: {value.strip()}')
         out.append('')
-    dest=ROOT/'ko/full-book'/f'{n:02}.md'
+    # Quarantine machine drafts; they must never be deployed as reviewed advice.
+    dest=CACHE/'full-book'/f'{n:02}.md'
     dest.parent.mkdir(exist_ok=True)
     dest.write_text('\n'.join(out)+'\n',encoding='utf-8',newline='\n')
     print(f'chapter {n:02}: {len(headings)} entries translated',flush=True)
@@ -96,6 +114,11 @@ if __name__=='__main__':
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
         jobs={pool.submit(chapter,p):p for p in sorted((ROOT/'book').glob('*.md'))}
         total=0
+        failures=[]
         for job in concurrent.futures.as_completed(jobs):
-            total+=job.result()
+            try:total+=job.result()
+            except Exception as exc:
+                failures.append(jobs[job].name)
+                print(f'FAILED {jobs[job].name[:2]}: {exc}',flush=True)
     print(f'Translation draft ready: {total} entries',flush=True)
+    if failures:raise SystemExit(f'{len(failures)} chapters need retry')

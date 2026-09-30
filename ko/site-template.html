@@ -1354,6 +1354,7 @@ document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && !DM.mask
     const t2 = performance.now(); build(sections); PERF.log('建 DOM', t2, CARDS.length + ' 张卡');
     buildGlossary(); readUrl(); wire(); apply();
     PERF.mark(`DOM 节点 ${document.getElementsByTagName('*').length}，용어 ${GLOSS.length}`);
+    if (/^#kr-\d+-\d+$/.test(location.hash)){ const m=location.hash.match(/^#kr-(\d+)-(\d+)$/); history.replaceState(null,'',location.pathname+location.search+'#e-'+Number(m[1])+'-'+Number(m[2])); }
     if (location.hash){
       let target = document.getElementById(location.hash.slice(1));
       // 别人分享过来的地址可能带着和 hash 冲突的筛选（老版本拼出来的 ?sec=8#e-11-1），

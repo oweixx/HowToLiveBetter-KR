@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = ('비용', '핵심', '실행', '기대 효과', '주의', '근거 유형', '출처', '원문 대응', '확인일')
+ORIGINAL_FIELDS = ('비용','쉽게 말하면','기대 효과','근거 등급','출처','참고')
 
 
 def read(path):
@@ -34,6 +35,15 @@ def entries(path):
         section = raw[match.end():matches[i+1].start() if i+1 < len(matches) else len(raw)]
         pairs = re.findall(r'^- ([^:]+): (.+)$', section, re.M)
         fields = dict(pairs)
+        if set(fields)==set(ORIGINAL_FIELDS) and len(pairs)==len(ORIGINAL_FIELDS):
+            if int(match[1])!=i+1 or fields['근거 등급'] not in ('A','B','C','K'):
+                raise ValueError(f'{path.name}: original-format numbering/grade invalid')
+            if not re.search(r'https?://',fields['출처']):
+                raise ValueError(f'{path.name}: original-format source missing')
+            result.append(dict(id=f'kr-{path.stem}-{i+1:02}',chapter=int(path.stem),title=match[2],
+                               original_format=raw[match.start():matches[i+1].start() if i+1<len(matches) else len(raw)],
+                               fields=fields))
+            continue
         if len(pairs) != len(REQUIRED) or set(fields) != set(REQUIRED):
             raise ValueError(f'{path.name}:{match[1]}: missing or duplicate fields')
         if int(match[1]) != i+1 or not re.fullmatch(r'\d{4}-\d{2}-\d{2}', fields['확인일']):
@@ -89,6 +99,18 @@ def render(meta, cards, inventory):
                '현재 일부 편집 초안만 표시합니다. 원문의 모든 항목을 반영한 완성본은 아닙니다.']
         for i,card in enumerate(chapter_cards,1):
             f=card['fields']
+            if 'original_format' in card:
+                section=card['original_format']
+                tags={'成本标签':'비용标签','钱':'돈','时间':'시간','毅力':'노력','收益':'효과',
+                      '死亡率':'건강','金钱':'금전','自由':'자유','少':'적음','多':'많음','否':'없음',
+                      '些':'조금','是':'있음','大':'큼','中':'중간','小':'작음'}
+                def local_tag(match):
+                    value=match[0]
+                    for a,b in tags.items():value=value.replace(a,b)
+                    return value
+                section=re.sub(r'<!--.*?-->',local_tag,section)
+                lines.append(section)
+                continue
             # Drafts have no researched quantitative benefit ranking. Explicit U
             # avoids manufacturing the original site's high/medium/low ratings.
             lines.extend([f'### {i}. {card["title"]}',
@@ -96,7 +118,7 @@ def render(meta, cards, inventory):
                           '- 비용: '+f['비용'],
                           '- 쉽게 말하면: '+f['핵심'],
                           '- 기대 효과: '+f['기대 효과'],
-                          '- 근거 등급: K',
+                          '- 근거 등급: '+(re.match(r'([ABC]) ·',f['근거 유형'])[1] if re.match(r'([ABC]) ·',f['근거 유형']) else 'K'),
                           '- 출처: '+f['출처'],
                           '- 참고: 실행: '+f['실행']+' 주의: '+f['주의']+' 근거 유형: '+f['근거 유형']+' 원문 대응: '+f['원문 대응']+' 확인일: '+f['확인일']+' · 한국판 검토 필요', ''])
         parts[path]='\n'.join(lines)

@@ -78,5 +78,6 @@ s=s.replace("if (b.el.hidden !== (n === 0)) b.el.hidden = n === 0;", "const hide
 s=s.replace("status.innerHTML = `读取正文失败（${esc(String(err.message))}）。确认 README.md 和 book/ 目录都在 index.html 旁边。`;", "status.innerHTML = `본문 로딩 실패: ${esc(String(err.message))}`;")
 s=s.replace('加载失败：','로딩 실패: ').replace('继续加载','다시 불러오기').replace('正在读取 …','불러오는 중…').replace('读不到这篇长文（','문서를 읽지 못했습니다 (')
 s=s.replace('</style>','\n.sec-link i{white-space:nowrap;flex-shrink:0}.sec-link span{word-break:keep-all;overflow-wrap:anywhere}\n</style>',1)
+s=s.replace("if (location.hash){\n      let target", "if (/^#kr-\\d+-\\d+$/.test(location.hash)){ const m=location.hash.match(/^#kr-(\\d+)-(\\d+)$/); history.replaceState(null,'',location.pathname+location.search+'#e-'+Number(m[1])+'-'+Number(m[2])); }\n    if (location.hash){\n      let target")
 (ROOT/'ko/site-template.html').write_text(s,encoding='utf-8',newline='\n')
 print('Restored upstream layout with Korean UI')
